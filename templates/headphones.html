@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block title %}Headphone Recommendations{% endblock %}
+{% block header %}Headphone Recommendation System{% endblock %}
+
+{% block extra_style %}
+<style>
+    .filter-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+    
+    .filter-group {
+        display: flex;
+        flex-direction: column; 
+    }
+    
+    .filter-group label {
+        font-weight: 600;
+        color: #667eea;
+        margin-bottom: 8px;
+        font-size: 0.95em;
+    }
+    
+    .filter-group select {
+        padding: 12px;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        font-size: 1em;
+        transition: all 0.3s;
+        background: white;
+    }
+    
+    .filter-group select:focus {
+        outline: none;
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+    
+    .submit-btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 15px 40px;
+        border: none;
+        border-radius: 10px;
+        font-size: 1.1em;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        margin-top: 20px;
+    }
+    
+    .submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.6);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<h2 style="color: #667eea; margin-bottom: 30px; font-size: 1.8em;">Find Your Perfect Headphones</h2>
+
+<form action="/headphones/recommend" method="post">
+    <div class="filter-container">
+        <div class="filter-group">
+            <label>Brand</label>
+            <select name="brand">
+                <option value="All">All Brands</option>
+                {% for brand in filters.brands %}
+                <option value="{{ brand }}">{{ brand }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="filter-group">
+            <label>Type</label>
+            <select name="headphone_type">
+                <option value="All">All Types</option>
+                {% for type in filters.types %}
+                <option value="{{ type }}">{{ type }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="filter-group">
+            <label>Noise Cancelling</label>
+            <select name="noise_cancelling">
+                <option value="All">All</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+        
+        <div class="filter-group">
+            <label>Wireless</label>
+            <select name="wireless">
+                <option value="All">All</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+        
+        <div class="filter-group">
+            <label>Price Range</label>
+            <select name="price_range">
+                <option value="All">All Prices</option>
+                <option value="Under 5k">Under ₹5,000</option>
+                <option value="5k-15k">₹5,000 - ₹15,000</option>
+                <option value="15k-30k">₹15,000 - ₹30,000</option>
+                <option value="Above 30k">Above ₹30,000</option>
+            </select>
+        </div>
+    </div>
+    
+    <button type="submit" class="submit-btn">🔍 Get Recommendations</button>
+</form>
+{% endblock %}

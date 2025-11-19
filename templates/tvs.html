@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+
+{% block title %}TV Recommendations{% endblock %}
+{% block header %}TV Recommendation System{% endblock %}
+
+{% block extra_style %}
+<style>
+    .filter-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+    
+    .filter-group {
+        display: flex;
+        flex-direction: column; 
+    }
+    
+    .filter-group label {
+        font-weight: 600;
+        color: #667eea;
+        margin-bottom: 8px;
+        font-size: 0.95em;
+    }
+    
+    .filter-group select {
+        padding: 12px;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        font-size: 1em;
+        transition: all 0.3s;
+        background: white;
+    }
+    
+    .filter-group select:focus {
+        outline: none;
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+    
+    .submit-btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 15px 40px;
+        border: none;
+        border-radius: 10px;
+        font-size: 1.1em;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        margin-top: 20px;
+    }
+    
+    .submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.6);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<h2 style="color: #667eea; margin-bottom: 30px; font-size: 1.8em;">Find Your Perfect TV</h2>
+
+<form action="/tvs/recommend" method="post">
+    <div class="filter-container">
+        <div class="filter-group">
+            <label>Brand</label>
+            <select name="brand">
+                <option value="All">All Brands</option>
+                {% for brand in filters.brands %}
+                <option value="{{ brand }}">{{ brand }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="filter-group">
+            <label>Screen Size (inches)</label>
+            <select name="size">
+                <option value="All">All Sizes</option>
+                {% for size in filters.sizes %}
+                <option value="{{ size }}">{{ size }}"</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="filter-group">
+            <label>Type</label>
+            <select name="tv_type">
+                <option value="All">All Types</option>
+                {% for type in filters.types %}
+                <option value="{{ type }}">{{ type }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="filter-group">
+            <label>Resolution</label>
+            <select name="resolution">
+                <option value="All">All Resolutions</option>
+                {% for resolution in filters.resolutions %}
+                <option value="{{ resolution }}">{{ resolution }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="filter-group">
+            <label>Smart TV</label>
+            <select name="smart_tv">
+                <option value="All">All</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+        
+        <div class="filter-group">
+            <label>Price Range</label>
+            <select name="price_range">
+                <option value="All">All Prices</option>
+                <option value="Under 30k">Under ₹30,000</option>
+                <option value="30k-70k">₹30,000 - ₹70,000</option>
+                <option value="70k-150k">₹70,000 - ₹1,50,000</option>
+                <option value="Above 150k">Above ₹1,50,000</option>
+            </select>
+        </div>
+    </div>
+    
+    <button type="submit" class="submit-btn">🔍 Get Recommendations</button>
+</form>
+{% endblock %}

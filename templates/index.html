@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+
+{% block extra_style %}
+<style>
+    .intro-text {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #555;
+        font-size: 1.1em;
+    }
+    
+    .products-container {
+        max-width: 1200px;
+        margin: 0 auto; 
+        padding: 10px;
+    }
+    
+    .products-row {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .products-row.first-row {
+        /* 3 items in first row */
+    }
+    
+    .products-row.second-row {
+        /* 2 items in second row - will auto center */
+    }
+    
+    .product-card {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 20px 15px;
+        border-radius: 12px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        text-decoration: none;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 140px;
+        width: 220px;
+        flex-shrink: 0;
+    }
+    
+    .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    }
+    
+    .product-icon {
+        font-size: 2.5em;
+        margin-bottom: 8px;
+        filter: drop-shadow(0 2px 5px rgba(0,0,0,0.3));
+    }
+    
+    .product-name {
+        font-size: 1em;
+        font-weight: 600;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    }
+    
+    /* Responsive design for smaller screens */
+    @media (max-width: 1024px) {
+        .products-row {
+            flex-wrap: wrap;
+        }
+        .product-card {
+            width: 200px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .products-row {
+            flex-direction: column;
+            align-items: center;
+        }
+        .product-card {
+            width: 100%;
+            max-width: 300px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="intro-text">
+    <p>Select a category to find your perfect product</p>
+</div>
+
+<div class="products-container">
+    <!-- First Row: 3 products -->
+    <div class="products-row first-row">
+        <a href="/laptops" class="product-card">
+            <div class="product-icon">💻</div>
+            <div class="product-name">Laptops</div>
+        </a>
+        
+        <a href="/phones" class="product-card">
+            <div class="product-icon">📱</div>
+            <div class="product-name">Phones</div>
+        </a>
+        
+        <a href="/tvs" class="product-card">
+            <div class="product-icon">📺</div>
+            <div class="product-name">TVs</div>
+        </a>
+    </div>
+    
+    <!-- Second Row: 2 products (centered) -->
+    <div class="products-row second-row">
+        <a href="/cameras" class="product-card">
+            <div class="product-icon">📷</div>
+            <div class="product-name">Cameras</div>
+        </a>
+        
+        <a href="/headphones" class="product-card">
+            <div class="product-icon">🎧</div>
+            <div class="product-name">Headphones</div>
+        </a>
+    </div>
+</div>
+{% endblock %}
+```
+
+## 🎯 **Layout:**
+```
+         💻          📱          📺
+      Laptops      Phones       TVs
+
+            📷              🎧
+         Cameras        Headphones
