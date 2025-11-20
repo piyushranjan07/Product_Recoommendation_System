@@ -78,7 +78,7 @@ project/
 
 🔧 Installation & Setup
 1️⃣ Clone the repository
-git clone https://github.com/your-username/repo-name.git
+git clone (https://github.com/piyushranjan07/Product_Recoommendation_System/tree/main)
 cd repo-name
 
 2️⃣ Install dependencies
