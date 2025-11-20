@@ -1,139 +1,100 @@
-📦 Product Recommendation System (FastAPI + Jinja2)
+# Product Recommendation Expert System
 
-A web-based product recommendation system built using FastAPI, Pandas, NumPy, and Jinja2 HTML templates.
-It allows users to filter and get recommendations for:
+A FastAPI-based expert system that recommends the best products
+(Laptops, Phones, TVs, Cameras, Headphones) based on user-selected
+filters such as brand, price range, and category.\
+The system generates synthetic datasets (500+ entries per category) and
+provides filtered recommendations through a clean and responsive HTML
+interface.
 
-💻 Laptops
+------------------------------------------------------------------------
 
-📱 Smartphones
+## 🚀 Features
 
-📺 Televisions
+-   ✔ Automatic dataset generation using **NumPy & Pandas**\
+-   ✔ Category-wise product recommendation (Laptop, Phone, TV, Camera,
+    Headphones)\
+-   ✔ Fast API backend with Jinja2 HTML templates\
+-   ✔ API + Web UI for searching products\
+-   ✔ Clean and responsive interface\
+-   ✔ Supports brand filtering, price filtering, and multi-category
+    filtering
 
-📷 Cameras
+------------------------------------------------------------------------
 
-🎧 Headphones
+## 🗂 Project Structure
 
-More than 500+ synthetic product entries are generated dynamically using Python.
+    /project-root
+    │── main.py                 # FastAPI backend
+    │── product_generation.py   # Synthetic dataset generator
+    │── templates/
+    │     ├── index.html        # Home page
+    │     ├── laptops.html      # Laptops page
+    │     ├── phones.html       # Phones page
+    │     ├── tvs.html          # TVs page
+    │     ├── cameras.html      # Cameras page
+    │     └── headphones.html   # Headphones page
+    │── static/
+    │     └── styles.css        # Styling
+    │── README.md               # Project documentation
 
-🚀 Features
-✅ Multi-category product filtering
+------------------------------------------------------------------------
 
-Each category includes filtering options:
+## ⚙️ Installation & Run
 
-Laptops → brand, processor, RAM, storage, purpose, price
+### **1. Install Dependencies**
 
-Phones → brand, RAM, storage, camera, price
+``` bash
+pip install fastapi uvicorn numpy pandas jinja2
+```
 
-TVs → brand, size, display type, resolution, smart TV, price
+### **2. Run the FastAPI Server**
 
-Cameras → brand, camera type, megapixels, video quality, price
-
-Headphones → brand, type, noise cancelling, wireless, price
-
-✅ Dynamic recommendation system
-
-Filters dataset based on user selections
-
-Shows Top 20 results sorted by rating
-
-Displays clean UI product cards
-
-✅ Auto-generated dataset (no external DB needed)
-
-500+ synthetic product records generated using NumPy
-
-DataFrames stored in memory for fast access
-
-✅ Clean and modern GUI
-
-Built using HTML5 + CSS (static folder)
-
-Jinja2 used to inject data dynamically
-
-Home page + filter pages + results page
-
-🛠️ Tech Stack
-Component	Technology
-Backend	FastAPI
-Templating	Jinja2
-Data	Pandas, NumPy
-Server	Uvicorn
-UI	HTML + CSS
-Deployment	Local / Cloud
-📂 Project Structure
-project/
-│── main.py
-│── requirements.txt
-│── templates/
-│     ├── index.html
-│     ├── laptops.html
-│     ├── phones.html
-│     ├── tvs.html
-│     ├── cameras.html
-│     ├── headphones.html
-│     └── results.html
-│── static/
-│     ├── style.css
-│     └── assets (optional)
-
-🔧 Installation & Setup
-1️⃣ Clone the repository
-git clone (https://github.com/piyushranjan07/Product_Recoommendation_System/tree/main)
-cd repo-name
-
-2️⃣ Install dependencies
-pip install -r requirements.txt
-
-
-If requirements.txt not added yet, use:
-
-pip install fastapi uvicorn pandas numpy jinja2
-
-3️⃣ Run the FastAPI server
+``` bash
 uvicorn main:app --reload
+```
 
-4️⃣ Open the browser
-http://127.0.0.1:8000/
+### **3. Open in Browser**
 
-🖥️ How the System Works
-➤ 1. Choose a Category
+    http://127.0.0.1:8000
 
-The home page lists all product categories.
+------------------------------------------------------------------------
 
-➤ 2. Apply Filters
+## 📌 How It Works
 
-Each category has its own filter page built using Jinja2.
+1.  `product_generation.py` creates large synthetic datasets\
+2.  User selects category → brand → price\
+3.  Backend filters products and renders a clean HTML result\
+4.  FastAPI automatically serves pages using templates
 
-➤ 3. Get Recommendations
+------------------------------------------------------------------------
 
-FastAPI processes filters → filters the DataFrame → returns top results → displays in a card layout.
+## 📸 Screenshots (Add your own)
 
-🧪 API Endpoints (Frontend-driven)
-Method	Route	Description
-GET	/	Home page
-GET	/laptops	Laptop filter UI
-POST	/laptops/recommend	Laptop recommendations
-GET	/phones	Phone filter UI
-POST	/phones/recommend	Phone recommendations
-GET	/tvs	TV filter UI
-POST	/tvs/recommend	TV recommendations
-GET	/cameras	Camera filter UI
-POST	/cameras/recommend	Camera recommendations
-GET	/headphones	Headphone filter UI
-POST	/headphones/recommend	Headphone recommendations
+  Page           Preview
+  -------------- ------------------
+  Home Page      *Add screenshot*
+  Laptops Page   *Add screenshot*
+  Phones Page    *Add screenshot*
 
-🛠️ Future Enhancements
+------------------------------------------------------------------------
 
-Connect to a real database (MongoDB / PostgreSQL)
+## 🛠 Tech Stack
 
-Add machine learning-based recommendations
+-   **FastAPI**
+-   **HTML + CSS (Jinja2 Templates)**
+-   **Python (NumPy, Pandas)**
+-   **Uvicorn Server**
 
-Add login system + user preferences
+------------------------------------------------------------------------
 
-Make UI more modern using Tailwind / Bootstrap
+## 👤 Author
 
-Add comparison feature between two products
+**Piyush Ranjan**\
+*Developer -- AI & Python Enthusiast*
 
-🤝 Contributing
+------------------------------------------------------------------------
 
-Pull requests and improvements are welcome!
+## 📄 License
+
+This project is licensed under the **MIT License**.
