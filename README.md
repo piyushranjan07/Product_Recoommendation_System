@@ -69,13 +69,11 @@ uvicorn main:app --reload
 
 ------------------------------------------------------------------------
 
-## 📸 Screenshots (Add your own)
+## 📸 Screenshots 
 
-  Page           Preview
-  -------------- ------------------
-  Home Page      *Add screenshot*
-  Laptops Page   *Add screenshot*
-  Phones Page    *Add screenshot*
+  Home Page     <img src = "./01.png">
+  Selection Page  <img src = "./02.png">
+  Recommendation Page   <img src = "./03.png">
 
 ------------------------------------------------------------------------
 
